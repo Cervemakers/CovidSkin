@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<!-- Basic -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>CovidSkin.org</title>
+
+	<meta name="keywords" content="HTML5 Template" />
+	<meta name="description" content="covidSKIN">
+	<meta name="author" content="covidSKIN.org">
+
+</head>
+
+<body>
+	<div>
+		<div>
+			<div>
+				<div>
+					<div>
+						<div>
+							<div>
+								<div>
+									<label for="inputMail" style="color:black"><b>e-Mail</b></label>
+									<div>
+										<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+											id="inputEmail" placeholder="e-Mail" onblur="blurEmail(this)"
+											onchange="blurEmail(this)">
+									</div>
+									<div id="errorInputEmail" style="display:none; color:red">
+										El correu electrònic no es correcte
+									</div>
+								</div>
+
+								<div>
+									<label for="inputAge" style="color:black"><b>Any Naixement</b></label>
+									<div>
+										<select id="inputAge" onblur="blurInputAge(this)" onchange="blurInputAge(this)">
+											<option selected value="">Escull el teu any de naixement</option>
+										</select>
+									</div>
+									<div id="errorInputAge" style="display:none; color:red">
+										Has d'escollir una opció
+									</div>
+								</div>
+								<script>
+									for (i = new Date().getFullYear(); i > 1900; i--) {
+										$('#inputAge').append($('<option />').val(i).html(i));
+									}
+								</script>
+
+								<div>
+									<label for="inputGender" style="color:black"><b>Sexe</b></label>
+									<div>
+										<select id="inputGender" onblur="blurInputGender(this)"
+											onchange="blurInputGender(this)">
+											<option selected value="">Escull una opció</option>
+											<option value="dona">Dona</option>
+											<option value="home">Home</option>
+											<option value="altres">Altres</option>
+										</select>
+									</div>
+									<div id="errorInputGender" style="display:none; color:red">
+										Has d'escollir una opció
+									</div>
+								</div>
+
+								<div>
+									<label for="inputCovid" style="color:black"><b>Tens o has tingut
+											Covid-19?</b></label>
+									<div>
+										<select id="inputCovid" onblur="blurInputCovid(this)"
+											onchange="blurInputCovid(this)">
+											<option value="" selected>Escull una opció</option>
+											<option value="No">No</option>
+											<option value="Actualment">Si (Actualment)</option>
+											<option value="Superat">Si (Superat)</option>
+											<option value="NoSe">No ho se</option>
+										</select>
+									</div>
+									<div id="errorInputCovid" style="display:none; color:red">
+										Has d'escollir una opció
+									</div>
+								</div>
+
+								<div>
+									<label for="inputCovidSymptoms" style="color:black"><b>Tens simptomes
+											actualment?</b></label>
+									<div style="padding-left: 45px;">
+										<fieldset id="inputCovidSymptoms">
+											<div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="Febre"
+														id="defaultCheck1">
+													<label for="defaultCheck1">
+														Febre
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="Tos"
+														id="defaultCheck2">
+													<label for="defaultCheck2">
+														Tos seca
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="MalCap"
+														id="defaultCheck3">
+													<label for="defaultCheck3">
+														Mal de cap
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="DolorOPressioAlPit"
+														id="defaultCheck4">
+													<label for="defaultCheck4">
+														Dolor o pressió al pit
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="Pneumonia"
+														id="defaultCheck5">
+													<label for="defaultCheck5">
+														Cansament
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="MalDeColl"
+														id="defaultCheck6">
+													<label for="defaultCheck6">
+														Mal de coll
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="Diarrea"
+														id="defaultCheck7">
+													<label for="defaultCheck7">
+														Diarrea
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="Conjuntivitis"
+														id="defaultCheck8">
+													<label for="defaultCheck8">
+														Conjuntivitis
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="Dolor"
+														id="defaultCheck9">
+													<label for="defaultCheck9">
+														Dolor
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="ErupcioPell"
+														id="defaultCheck10">
+													<label for="defaultCheck10">
+														Erupció a la pell
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="PerduaGustOOlfacte"
+														id="defaultCheck11">
+													<label for="defaultCheck11">
+														Pèrdua del gust o de l'olfacte
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="DecoloracioDits"
+														id="defaultCheck12">
+													<label for="defaultCheck12">
+														Decoloració dels dits de les mans o dels peus
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="DificultatRespirar"
+														id="defaultCheck13">
+													<label for="defaultCheck13">
+														Dificultat per respirar o falta d'aire
+													</label>
+												</div>
+												<div style="line-height: initial;">
+													<input name="symptoms" type="checkbox" value="PerduaParlaOMoviment"
+														id="defaultCheck14">
+													<label for="defaultCheck14">
+														Pèrdua de la parla o del moviment
+													</label>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+
+								<div>
+									<label for="inputImage" style="color:black"><b>Imatge</b></label>
+									<div>
+										<input type="file" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+											id="inputImage" placeholder="Selecciona la imatge a pujar"
+											accept="image/jpg, image/png, image/jpeg" required
+											onblur="blurInputImage(this)" onchange="blurInputImage(this)">
+									</div>
+									<div id="errorInputImage" style="display:none; color:red">
+										Cal seleccionar una imatge
+									</div>
+								</div>
+
+								<script type="text/javascript">
+									function blurEmail(event) {
+										if (validateEmail(event.value)) {
+											document.getElementById("errorInputEmail").style.display = "none";
+											return true;
+										} else {
+											document.getElementById("errorInputEmail").style.display = "block";
+											return false;
+										}
+									}
+
+									function blurInputAge(event) {
+										if (event.value) {
+											document.getElementById("errorInputAge").style.display = "none";
+											return true;
+										} else {
+											document.getElementById("errorInputAge").style.display = "block";
+											return false;
+										}
+									}
+
+									function blurInputGender(event) {
+										if (event.value) {
+											document.getElementById("errorInputGender").style.display = "none";
+											return true;
+										} else {
+											document.getElementById("errorInputGender").style.display = "block";
+											return false;
+										}
+									}
+
+									function blurInputCovid(event) {
+										if (event.value) {
+											document.getElementById("errorInputCovid").style.display = "none";
+											return true;
+										} else {
+											document.getElementById("errorInputCovid").style.display = "block";
+											return false;
+										}
+									}
+
+									function blurInputImage(event) {
+										if (event.value) {
+											document.getElementById("errorInputImage").style.display = "none";
+											return true;
+										} else {
+											document.getElementById("errorInputImage").style.display = "block";
+											return false;
+										}
+									}
+
+									function validateEmail(email) {
+										const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+										return re.test(email);
+									}
+
+									function validateAll() {
+										let result = blurEmail(document.getElementById("inputEmail"));
+										result = blurInputAge(document.getElementById("inputAge")) && result;
+										result = blurInputGender(document.getElementById("inputGender")) && result;
+										result = blurInputCovid(document.getElementById("inputCovid")) && result;
+										result = blurInputImage(document.getElementById("inputImage")) && result;
+										return result;
+									}
+
+									function subirDatos() {
+										if (validateAll()) {
+											var formData = new FormData();
+											var symptoms = "";
+											$('input[name="symptoms"]:checked').each(function () {
+												symptoms = symptoms + this.value + ";";
+											});
+											symptoms = symptoms.slice(0, -1);
+
+											formData.append('email', $('#inputEmail').val());
+											formData.append('age', $("#inputAge").children("option:selected").val());
+											formData.append('gender', $("#inputGender").children("option:selected").val());
+											formData.append('covid', $("#inputCovid").children("option:selected").val());
+											formData.append('covidSymptoms', symptoms);
+											formData.append('image', $('#inputImage')[0].files[0]);
+
+											$.ajax({
+												type: 'post',
+												url: 'php/Upload.php',
+												data: formData,
+												beforeSend: function () { },
+												success: function (status) {
+													if (status != "") {
+														console.log(status);
+														var response = status; // TODO: Borrar linea
+														if (response.result == 'OK') {
+															// Mostramos mensaje de que todo ha ido OK
+															// console.log(response.message);
+															document.getElementById("errorInputImage").style.display = "none";
+															window.location.href = "agraiment.html";
+														}
+														else if (response.result == 'Error') {
+															// Mostramos mensaje de que ha habido un error y cual es
+															console.log(response.message);
+															document.getElementById("errorSubmit").style.display = "block";
+															document.getElementById("textError").innerHTML = response.message;
+														}
+													}
+													else {
+														console.log(status);
+													}
+												},
+												processData: false,
+												contentType: false,
+												error: function (data) {
+													console.log(data);
+												}
+											});
+										}
+									}
+								</script>
+							</div>
+						</div>
+						<hr>
+						<div>
+							<div>
+								<div id="errorSubmit" style="display:none; color:red">
+									Ha hagut un error a l'enviament de les dades:<br>
+									<span id="textError" style="font-weight: 700;"></span><br>
+									Reviseu les dades i torneu a enviar-ho. Si el problema persisteix contacteu amb
+									nosaltres <a href="\contacte.html">aquí</a>
+								</div>
+								<div>
+									<p>Ara ja tenim tota la informació necessària.
+									</p>
+									<h4>Fés click en el següent botó i puja la teva fotografia.
+									</h4>
+								</div>
+							</div>
+							<div>
+								<div>
+									<button onclick="subirDatos()">Puja les teves dades</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
